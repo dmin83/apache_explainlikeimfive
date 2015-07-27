@@ -1,3 +1,4 @@
+# Apache Zookeeper
 If you are related to application development you have probably heard of ZooKeeper at some point in time. Its a nice little project, and in fact it’s used in a lot of Apache projects. Its found in Kafka, SOLR, HBase and many more.
 
 In very simple terms, ZooKeeper is a Co-ordination service. On reddit there is a nice subsection that's called `explain like I'm five` you ask questions and the responses are given in such simple terms that even a 5 year old would understand. I'll make an attempt to do the same : )
