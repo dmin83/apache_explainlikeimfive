@@ -41,7 +41,7 @@ ZooKeeper exposes a linux directory like structure where you can have paths that
 
 There is are a couple of other great options too in ZooKeeper that can be leveraged.
 
-## Ephemeral zNodes
+### Ephemeral zNodes
 Ephemeral stands for that which is not permanent. These zNodes only live till the session with ZK of the process that created it is active.
 
 This means that if a script creates a zNode on ZooKeeper and sets it as ephemeral while creating it, as soon as the script is killed, the zNode that it created also dissapears.
@@ -55,12 +55,12 @@ The caveat here is that you need to ensure that you script keeps running and you
 
 
 
-## Watchers
+### Watchers
 Watchers lets you keep an eye for changes on a particular zNode. This means that you would get an event if any activity happens on that particular zNode. This would be a signal to your script that you need to pull the latest data from the zNode.  
 
 The thing to note here is, the event is there to only let you know that you have old information and there is some new information on the zNode you are watching. It doesn't give you events everytime changes happen. It gives the notification only once until the next time you pull data from it. After your pulling data if something new happens again, it will give you a notification once.
 
-## Quorum
+### Quorum
 As we discussed earlier that ZK can work in a cluster of several machines. In a multi node setup of ZK there is a concept of a master node and slave nodes. The difference between them is that reads can happen from anywhere but writes will only happen from the master. They will then be synced to the slave servers. It is possible that even one of the nodes of ZK can crash. If the crashed server is a slave, it doesn't make a difference, but if the server is a master then the remaining machines would be left with no master. To take care of this situation the slaves would get together and conduct an election amongst themselves. The node with the oldest data would become the next Master.
 
 If your application has some concept of Master and Slave where slaves need to be defined and the master could crash. You can use this feature of ZK to decide who should be the next Master inside your application as well.
